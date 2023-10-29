@@ -88,7 +88,7 @@ body{
     
 <div id="timer">
 
-    <div class="days"> 
+	<div class="days"> 
         <div id="days" class="numbers "> </div>days</div> 
       <div class="hours"> 
         <div  id="hours" class="numbers"> </div>hours</div> 
@@ -102,27 +102,25 @@ body{
 
 </body>
 <script>
-    const year = new Date().getFullYear();
-const myDate = new Date('Oct 15, 2024 00:00:00');
-console.log(myDate);
-
+    
 // countdown
 let timer = setInterval(function() {
 
   // get today's date
-  const today = new Date().getTime();
+  const today = new Date()
 
-  // get the difference
-  const diff = myDate - today;
+  // get the todayerence
+ 
 
   // math
-  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  let local = today.toLocaleDateString(); 
+  let days = today.getDate();
+  let hours = today.getHours();
+  let minutes = today.getMinutes();
+  let seconds = today.getSeconds();
 
   // display
-  document.getElementById("days").innerHTML=days
+  document.getElementById("days").innerHTML= days
   document.getElementById("hours").innerHTML=hours
   document.getElementById("minutes").innerHTML=minutes
   document.getElementById("seconds").innerHTML=seconds
